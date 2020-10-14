@@ -15,7 +15,7 @@ public interface RoleRepository extends Repository<Role, Integer>, JpaSpecificat
 
     List<Role> findAll();
 
-    @Query("select role.roleName From Role role where not role.roleName ='admin'")
+    @Query("select role.roleName From Role role where not role.roleName ='ADMIN'")
     List<String> findUserRoles();
 
     Optional<Role> findByRoleName(RoleName roleName);
