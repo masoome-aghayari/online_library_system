@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5de91daa-c1c5-457f-b2dc-ba1123d277bb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/online-library-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/online-library-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/validation.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +159,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602584458854</updated>
-      <workItem from="1602584466665" duration="25484000" />
+      <workItem from="1602584466665" duration="25757000" />
     </task>
     <servers />
   </component>
