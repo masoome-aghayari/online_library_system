@@ -28,7 +28,7 @@ public class SigningController {
     Environment env;
 
     @GetMapping(value = "/register")
-    public ModelAndView showRegisterPage(Model model, HttpServletRequest request) {
+    public ModelAndView showRegisterPage(HttpServletRequest request) {
         if (isSignedIn(request))
             return getUserPanel(request.getSession(false));
         ModelAndView register = new ModelAndView("register");

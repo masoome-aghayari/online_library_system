@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5de91daa-c1c5-457f-b2dc-ba1123d277bb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/styles/homeStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/BorrowItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/BorrowItemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/SigningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/SigningController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +60,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages\styles" />
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main" />
     </key>
   </component>
@@ -160,7 +161,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602584458854</updated>
-      <workItem from="1602584466665" duration="37811000" />
+      <workItem from="1602584466665" duration="38077000" />
     </task>
     <servers />
   </component>
