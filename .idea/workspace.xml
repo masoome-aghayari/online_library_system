@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5de91daa-c1c5-457f-b2dc-ba1123d277bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/utils/Gender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/validator/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/validator/UserValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/styles/registerStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/styles/registerStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602584458854</updated>
-      <workItem from="1602584466665" duration="32139000" />
+      <workItem from="1602584466665" duration="36034000" />
     </task>
     <servers />
   </component>

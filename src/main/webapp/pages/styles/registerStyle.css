@@ -60,6 +60,7 @@ div h3 {
 
 form label {
     margin-bottom: 1px;
+    margin-left: 0;
 }
 
 .field {
