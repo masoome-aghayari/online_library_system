@@ -20,8 +20,8 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 @Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private static final String AUTHORITY_QUERY = "Select user.email, role.roleName from user, role where email = ? and user.role_id = role.id";
-    private static final String USERNAME_QUERY = "Select email, password, 1 from user where email = ?";
+    private static final String AUTHORITY_QUERY = "Select user.nationalId, role.roleName from user, role where nationalId = ? and user.role_id = role.id";
+    private static final String USERNAME_QUERY = "Select nationalId, password, 1 from user where nationalId = ?";
 
     @Autowired
     DataSource dataSource;
@@ -37,18 +37,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/loginProcess")
-                .usernameParameter("email")
+                .usernameParameter("nationalId")
                 .passwordParameter("password")
-                .successForwardUrl("/successProcess")
+                .successForwardUrl("/login-process")
                 .failureUrl("/loginError")
                 .permitAll()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/register").permitAll()
-                .antMatchers("/registerProcess").permitAll()
-                .antMatchers("/verify-account").permitAll()
-                .antMatchers("/resend").permitAll()
-                .antMatchers("/resendProcess").permitAll()
+                .antMatchers("/register-process").permitAll()
                 .antMatchers("/error").permitAll()
                 .antMatchers("/").permitAll()
                 .and()
