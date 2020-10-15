@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.stream.IntStream;
 
@@ -75,7 +76,14 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "gender", "NotEmpty");
         Gender gender = Gender.valueOf(user.getGender().toUpperCase());
         if (gender.compareTo(Gender.MALE) != 0 && gender.compareTo(Gender.FEMALE) != 0)
-            errors.rejectValue("gender","Invalid.Gender");
+            errors.rejectValue("gender", "Invalid.Gender");
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "profilePicture", "NotEmpty");
+        MultipartFile profilePic = user.getProfilePicture();
+        if (!isImage(profilePic))
+            errors.rejectValue("profilePicture", "Error.Not.Image.File");
+        else if (!isValidSize(profilePic))
+            errors.rejectValue("profilePicture", "Error.Max.Size.Image");
     }
 
     private boolean isValidNationalId(String nationalId) {
@@ -86,5 +94,15 @@ public class UserValidator implements Validator {
         remainder = sum % 11;
         lastDigit = remainder < 2 ? remainder : 11 - remainder;
         return nationalId.charAt(9) == lastDigit;
+    }
+
+    private boolean isImage(MultipartFile file) {
+        String fileContentType = file.getContentType();
+        return fileContentType != null && fileContentType.contains("image");
+    }
+
+    private boolean isValidSize(MultipartFile file) {
+        int maxSize = Integer.parseInt(env.getProperty("Max.Size.Image"));
+        return file.getSize() <= maxSize;
     }
 }

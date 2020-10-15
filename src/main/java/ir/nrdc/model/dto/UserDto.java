@@ -2,6 +2,11 @@ package ir.nrdc.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.Basic;
+import javax.persistence.FetchType;
+import javax.persistence.Lob;
 
 @Getter
 @Setter
@@ -16,4 +21,5 @@ public class UserDto {
     private String gender;
     private String nationalId;
     private String Role;
+    private MultipartFile profilePicture;
 }

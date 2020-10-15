@@ -9,15 +9,17 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
+/*@RequestMapping("/online_library")*/
 @PropertySource("classpath:messages.properties")
 public class SigningController {
     @Autowired
@@ -47,7 +49,9 @@ public class SigningController {
     }
 
     @PostMapping(value = "/register-process")
-    public String registerProcess(@ModelAttribute UserDto userDto, Model model, BindingResult bindingResult) {
+    public String registerProcess(@ModelAttribute UserDto userDto, Model model, BindingResult bindingResult,
+                                  @RequestParam("file") MultipartFile file) {
+        userDto.setProfilePicture(file);
         userValidator.validate(userDto, bindingResult);
         if (bindingResult.hasErrors())
             return "register";

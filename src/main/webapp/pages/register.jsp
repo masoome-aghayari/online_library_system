@@ -59,19 +59,27 @@
                         title="simple@example.com" class="form-control" required="required"/>
             <form:errors path="email" cssClass="error"/>
         </div>
+
         <div class="form-group field">
             <form:label path="gender" class="col-md-4 control-label">Gender:</form:label>
             <form:select path="gender" id="gender" required="required" class="dropdown">
                 <option value="">--</option>
-                    <option value="male">male</option>
-                    <option value="female">female</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
             </form:select>
             <form:errors path="gender" cssClass="error"/>
         </div>
+
         <div class="form-group field">
             <form:label path="age" class="col-md-4 control-label">Age:</form:label>
             <form:input type="number" path="age" id="age" required="required" class="form-control"/>
             <form:errors path="age" cssClass="error"/>
+        </div>
+
+        <div class="custom-file mb-3">
+            <label for="image" class="custom-file-label">Choose Image:</label>
+            <input id="image" name="file" class="custom-file-input" type="file" required/>
+            <form:errors path="profilePicture" cssClass="error"/>
         </div>
 
         <div class="form-group field">
@@ -126,6 +134,11 @@
             return false;
         }
     }
+
+    $(".custom-file-input").on("change", function () {
+        const fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
 
     function removeRequired(form) {
         $.each(form, function (key, value) {

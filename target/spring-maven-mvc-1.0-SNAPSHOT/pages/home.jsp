@@ -16,10 +16,10 @@
 <div class="main-block">
     <form>
         <div class="span2">
-            <button formaction="/register" id="register" name="register" class="btn btn-primary btn-block"
+            <button formaction="/register" class="btn btn-primary btn-block"
                     type="submit">Register User
             </button>
-            <button formaction="/login" id="login" name="login" class="btn btn-success btn-block"
+            <button formaction="/login" class="btn btn-success btn-block"
                     type="submit">Login User
             </button>
         </div>
