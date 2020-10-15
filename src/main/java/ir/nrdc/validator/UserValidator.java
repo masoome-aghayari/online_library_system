@@ -5,6 +5,7 @@ import ir.nrdc.service.UserService;
 import ir.nrdc.service.converter.UserDtoConverter;
 import ir.nrdc.utils.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.stream.IntStream;
 
 @Component
+@PropertySource("classpath:constant_numbers.properties")
 public class UserValidator implements Validator {
     @Autowired
     UserService userService;
@@ -42,9 +44,9 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
         if (!user.getEmail().matches("^[\\w!#$%&'*+/=?`{|}~^-]+" +
                 "(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$"))
-            errors.rejectValue("email", "Invalid.userDto.email");
+            errors.rejectValue("email", "Invalid.user.email");
         if (userService.isExistsUser(user.getEmail()))
-            errors.rejectValue("email", "Duplicate.userDto.email");
+            errors.rejectValue("email", "Duplicate.user.email");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nationalId", "NotEmpty");
         String nationalId = user.getNationalId();
@@ -53,13 +55,13 @@ public class UserValidator implements Validator {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         if (user.getPassword().length() < 8 || user.getPassword().length() > 16)
-            errors.rejectValue("password", "Size.userDto.password");
+            errors.rejectValue("password", "Size.user.password");
         if (!user.getPassword().matches("\\A(?=.*[A-Z])(?=.*\\d)[a-zA-Z0-9]{8,16}\\z"))
-            errors.rejectValue("password", "Pattern.userDto.password");
+            errors.rejectValue("password", "Pattern.user.password");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "NotEmpty");
         if (!user.getPassword().matches(user.getConfirmPassword()))
-            errors.rejectValue("confirmPassword", "Diff.userDto.passwordConfirm");
+            errors.rejectValue("confirmPassword", "Diff.user.passwordConfirm");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "age", "NotEmpty");
         int minimumAge = Integer.parseInt(env.getProperty("Limit.Age"));
@@ -81,18 +83,21 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "profilePicture", "NotEmpty");
         MultipartFile profilePic = user.getProfilePicture();
         if (!isImage(profilePic))
-            errors.rejectValue("profilePicture", "Error.Not.Image.File");
+            errors.rejectValue("profilePicture", "Not.Image.File");
         else if (!isValidSize(profilePic))
-            errors.rejectValue("profilePicture", "Error.Max.Size.Image");
+            errors.rejectValue("profilePicture", "Max.Size.Image");
     }
 
     private boolean isValidNationalId(String nationalId) {
-        if (nationalId.length() != 10)
+        int idSize = Integer.parseInt(env.getProperty("Size.NationalId"));
+        if (nationalId.length() != idSize)
             return false;
         int remainder, lastDigit;
-        int sum = IntStream.range(0, 9).map(i -> Character.getNumericValue(nationalId.charAt(i)) * (10 - i)).sum();
-        remainder = sum % 11;
-        lastDigit = remainder < 2 ? remainder : 11 - remainder;
+        int remainderParam = Integer.parseInt(env.getProperty("Remainder.Parameter.NationalId"));
+        int dividerParam = Integer.parseInt(env.getProperty("Divider.Parameter.NationalId"));
+        int sum = IntStream.range(0, 9).map(i -> Character.getNumericValue(nationalId.charAt(i)) * (idSize - i)).sum();
+        remainder = sum % dividerParam;
+        lastDigit = remainder < remainderParam ? remainder : dividerParam - remainder;
         return nationalId.charAt(9) == lastDigit;
     }
 

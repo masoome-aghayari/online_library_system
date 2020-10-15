@@ -4,6 +4,7 @@ package ir.nrdc.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,9 +19,9 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-@Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private static final String AUTHORITY_QUERY = "Select user.nationalId, role.roleName from user, role where nationalId = ? and user.role_id = role.id";
+    private static final String AUTHORITY_QUERY = "Select user.nationalId, role.roleName from user, role where " +
+            "nationalId = ? and user.role_id = role.id";
     private static final String USERNAME_QUERY = "Select nationalId, password, 1 from user where nationalId = ?";
 
     @Autowired
