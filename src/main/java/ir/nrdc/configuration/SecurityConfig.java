@@ -49,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register-process").permitAll()
                 .antMatchers("/error").permitAll()
                 .antMatchers("/").permitAll()
+                /*.antMatchers("/resources/pages/home.jsp").permitAll()*/
                 .and()
                 .httpBasic()
                 .and()

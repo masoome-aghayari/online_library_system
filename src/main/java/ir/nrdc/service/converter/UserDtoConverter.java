@@ -7,6 +7,8 @@ import ir.nrdc.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 public class UserDtoConverter {
     @Autowired
@@ -35,6 +37,11 @@ public class UserDtoConverter {
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
         user.setRole(stringToRoleConverter(userDto.getRole()));
+        try {
+            user.setProfilePicture(userDto.getProfilePicture().getBytes());
+        } catch (IOException e) {
+            user.setProfilePicture(null);
+        }
         return user;
     }
 

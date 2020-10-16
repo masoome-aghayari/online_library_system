@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/dc1776693c.js" crossorigin="anonymous"></script>
     <title>login form</title>
     <style type="text/css">
-        <%@include file="styles/registerStyle.css" %>
+        <%@include file="/resources/theme/css/styles/registerStyle.css" %>
     </style>
 </head>
 <body>

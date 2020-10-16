@@ -1,6 +1,7 @@
 package ir.nrdc.service;
 
 import ir.nrdc.model.dto.UserDto;
+import ir.nrdc.model.entity.RoleName;
 import ir.nrdc.model.entity.User;
 import ir.nrdc.model.repository.UserRepository;
 import ir.nrdc.service.converter.UserDtoConverter;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
@@ -22,6 +24,8 @@ public class UserService {
 
     @Transactional
     public void registerUser(UserDto userDto) {
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        userDto.setRole("MEMBER");
         userRepository.save(userDtoConverter.convertDtoToUser(userDto));
     }
 

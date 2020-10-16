@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>home</title>
     <style type="text/css">
-        <%@include file="/pages/styles/homeStyle.css"%>
+        <%@include file="/resources/theme/css/styles/homeStyle.css"%>
     </style>
 </head>
 <body>

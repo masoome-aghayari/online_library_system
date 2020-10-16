@@ -34,11 +34,11 @@ public class UserValidator implements Validator {
     public void validate(Object o, Errors errors) {
         UserDto user = (UserDto) o;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "NotEmpty");
-        if (!user.getFirstName().matches("^[a-zA-Z]+"))
+        if (!user.getFirstName().matches("^[a-zA-Z]+([. ]*[a-zA-Z]+)*"))
             errors.rejectValue("firstName", "Alphabetic");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "NotEmpty");
-        if (!user.getLastName().matches("^[a-zA-Z]+"))
+        if (!user.getLastName().matches("^[a-zA-Z]+([. ]*[a-zA-Z]+)*"))
             errors.rejectValue("lastName", "Alphabetic");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
@@ -56,7 +56,7 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         if (user.getPassword().length() < 8 || user.getPassword().length() > 16)
             errors.rejectValue("password", "Size.user.password");
-        if (!user.getPassword().matches("\\A(?=.*[A-Z])(?=.*\\d)[a-zA-Z0-9]{8,16}\\z"))
+        else if (!user.getPassword().matches("\\A(?=.*[A-Z])(?=.*\\d)[a-zA-Z0-9]{8,16}\\z"))
             errors.rejectValue("password", "Pattern.user.password");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "NotEmpty");
@@ -98,7 +98,8 @@ public class UserValidator implements Validator {
         int sum = IntStream.range(0, 9).map(i -> Character.getNumericValue(nationalId.charAt(i)) * (idSize - i)).sum();
         remainder = sum % dividerParam;
         lastDigit = remainder < remainderParam ? remainder : dividerParam - remainder;
-        return nationalId.charAt(9) == lastDigit;
+        int nationalLastDigit = nationalId.charAt(9);
+        return nationalLastDigit-48 == lastDigit;
     }
 
     private boolean isImage(MultipartFile file) {
