@@ -10,6 +10,7 @@ ir\nrdc\model\dto\UserDto.class
 ir\nrdc\utils\Gender.class
 ir\nrdc\service\BorrowItemService.class
 ir\nrdc\configuration\SecurityConfig.class
+ir\nrdc\model\repository\UserSpecifications.class
 ir\nrdc\model\entity\BorrowItem.class
 ir\nrdc\validator\UserValidator.class
 ir\nrdc\model\repository\UserRepository.class

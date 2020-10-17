@@ -1,6 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <html>
 <head>
@@ -10,34 +9,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/dc1776693c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/registerStyle.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/loginStyle.css"/>">
     <title>login form</title>
-    <style type="text/css">
-        <%@include file="/resources/theme/css/styles/registerStyle.css" %>
-    </style>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/">
-    <button type="submit" id="home" name="home" class="btn btn-success btn-group" style="margin: 2vh 2vw">Home</button>
+    <button type="submit" class="btn btn-success btn-group btn-home">Home</button>
 </form>
 <div class="main-block">
-    <div style="color: red; margin-bottom: 2vh"><strong>${message}</strong></div>
-    <form:form modelAttribute="user" action="/login-process" cssClass="content" method="Post">
-        <div class="header">
-            <h3 style="text-align: left">Login Form</h3>
-        </div>
-        <div class="form-group">
-            <form:label path="nationalId" cssStyle="margin-left: 0">NationalId:</form:label>
-            <form:input path="nationalId" id="nationalId" class="form-control" required="required"/>
-        </div>
-        <div class="form-group">
-            <form:label path="password" cssStyle="margin-left: 0">Password:</form:label>
-            <form:password path="password" id="password" name="password" cssClass="form-control"
-                           placeholder="Enter Password" required="required"/>
-            <i class="far fa-eye btn-show-hide-pwd" data-for="password"></i>
-        </div>
-        <div class="span2">
-            <form:button class="btn btn-primary btn-block" type="submit" value="Submit">Login</form:button>
-        </div>
+    <form:form modelAttribute="user" action="/loginProcess" cssClass="content" method="Post">
+        <table class="tableizer-table">
+            <thead>
+            <tr class="tableizer-firstrow">
+                <th colspan="2">Login Form</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="2"><div class="login-error"><strong>${message}</strong></div></td>
+            </tr>
+            <tr>
+                <td><form:label path="nationalId" cssStyle="margin-left: 0">National Id:</form:label></td>
+                <td><form:input path="nationalId" id="nationalId" class="form-control" required="required"/></td>
+            </tr>
+            <tr>
+                <td><form:label path="password" cssStyle="margin-left: 0">Password:</form:label></td>
+                <td><form:password path="password" id="password" name="password" cssClass="form-control pass-input"
+                                   placeholder="Enter Password" required="required"/>
+                    <i class="far fa-eye btn-show-hide-pwd" data-for="password"></i></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="span2">
+                        <form:button class="btn btn-primary btn-block button">Login</form:button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </form:form>
 </div>
 </body>

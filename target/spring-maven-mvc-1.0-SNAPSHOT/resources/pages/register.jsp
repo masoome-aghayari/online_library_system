@@ -118,7 +118,7 @@
             <tr>
                 <td colspan="4">
                     <div class="span2">
-                        <form:button id="register" name="register" class="btn btn-primary btn-block button">
+                        <form:button id="register" class="btn btn-primary btn-block button">
                             Register
                         </form:button>
                     </div>

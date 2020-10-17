@@ -1,0 +1,36 @@
+body {
+    background: url("/resources/theme/css/pictures/color_books.jpg") no-repeat fixed;
+    background-position-x: left;
+    background-size: 1600px 721px;
+}
+
+.span2 button {
+    width: 23vw;
+}
+
+.span2 {
+    margin-left: 0;
+    margin-top: 2vh;
+}
+
+.tableizer-table th {
+    color: #000000;
+}
+
+.content {
+    margin: 15vh 20vw;
+    width: 85vw;
+}
+
+.tableizer-firstrow {
+    height: 10vh;
+}
+
+.btn-show-hide-pwd {
+    margin-left: -3vw;
+}
+
+.login-error {
+    color: red;
+    margin-bottom: 2vh
+}

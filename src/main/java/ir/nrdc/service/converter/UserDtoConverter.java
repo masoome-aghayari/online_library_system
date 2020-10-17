@@ -5,9 +5,14 @@ import ir.nrdc.model.entity.Role;
 import ir.nrdc.model.entity.User;
 import ir.nrdc.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserDtoConverter {
@@ -22,7 +27,7 @@ public class UserDtoConverter {
         userDto.setAge(user.getAge());
         userDto.setGender(user.getGender());
         userDto.setEmail(user.getEmail());
-        userDto.setRole(user.getRole().getRoleName().name());
+        userDto.setRole(user.getRole().getRoleName());
         return userDto;
     }
 
@@ -47,5 +52,13 @@ public class UserDtoConverter {
 
     public Role stringToRoleConverter(String roleName) {
         return roleService.findRoleByName(roleName);
+    }
+
+    public ArrayList<UserDto> convertUserListToDtoList(List<User> pendingUsers) {
+        return pendingUsers.stream().map(this::convertUserToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public Page<UserDto> convertUserPageToDtoPage(Page<User> userPage) {
+        return new PageImpl<>(convertUserListToDtoList(userPage.getContent()));
     }
 }

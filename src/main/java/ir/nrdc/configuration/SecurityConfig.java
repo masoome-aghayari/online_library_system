@@ -4,8 +4,6 @@ package ir.nrdc.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -20,8 +18,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private static final String AUTHORITY_QUERY = "Select user.nationalId, role.roleName from user, role where " +
-            "nationalId = ? and user.role_id = role.id";
+    private static final String AUTHORITY_QUERY = "Select user.nationalId, role.roleName from user, role where nationalId = ? and user.role_id = role.id";
     private static final String USERNAME_QUERY = "Select nationalId, password, 1 from user where nationalId = ?";
 
     @Autowired
@@ -40,8 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/loginProcess")
                 .usernameParameter("nationalId")
                 .passwordParameter("password")
-                .successForwardUrl("/login-process")
-                .failureUrl("/loginError")
+                .successForwardUrl("/login-success")
+                .failureUrl("/login-error")
                 .permitAll()
                 .and()
                 .authorizeRequests()
@@ -49,7 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register-process").permitAll()
                 .antMatchers("/error").permitAll()
                 .antMatchers("/").permitAll()
-                /*.antMatchers("/resources/pages/home.jsp").permitAll()*/
                 .and()
                 .httpBasic()
                 .and()

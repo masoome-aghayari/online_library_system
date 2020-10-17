@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-/*@RequestMapping("/online_library")*/
 @PropertySource("classpath:messages.properties")
 public class SigningController {
     @Autowired
@@ -64,16 +63,23 @@ public class SigningController {
         }
     }
 
-    @PostMapping(value = "/login-process")
+    @PostMapping(value = "/login-success")
     public ModelAndView loginProcess(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        String nationalId = request.getParameter("nationalId");
+        String nationalId = request.getParameter("email");
         UserDto desiredUser = userService.findByNationalId(nationalId);
         session.setAttribute("user", desiredUser);
         ModelAndView dashboard = new ModelAndView(desiredUser.getRole() + "Dashboard");
         dashboard.addObject("user", desiredUser);
         return dashboard;
     }
+
+    @GetMapping(value = "/login-error")
+    public ModelAndView showLoginError(Model model, HttpServletRequest request) {
+        model.addAttribute("message", env.getProperty("Login.BadCredentials"));
+        return showLoginPage(model, request);
+    }
+
 
     private ModelAndView getUserPanel(HttpSession session) {
         UserDto userDto = (UserDto) session.getAttribute("user");
