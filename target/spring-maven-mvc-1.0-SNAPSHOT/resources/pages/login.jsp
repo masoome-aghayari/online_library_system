@@ -26,7 +26,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr class="error-row">
                 <td colspan="2"><div class="login-error"><strong>${message}</strong></div></td>
             </tr>
             <tr>

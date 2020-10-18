@@ -3,10 +3,8 @@ package ir.nrdc.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -14,12 +12,15 @@ import javax.persistence.Id;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private long id;
     private String name;
-    private String author;
+    private String subject;
+    @ManyToOne
+    private Author author;
     private String publisher;
     private String ageGroup;
-    private String subject;
     private String isbn;
-
+    private int numberOfPages;
+    private LocalDate publishDate;
+    private int number;
 }

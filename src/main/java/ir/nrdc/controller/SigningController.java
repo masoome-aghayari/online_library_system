@@ -56,20 +56,20 @@ public class SigningController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("user", user);
             return "register";
-        } else {
-            userService.registerUser(user);
-            model.addAttribute("message", env.getProperty("Registration.Successful"));
-            return "redirect:/login";
         }
+        userService.registerUser(user);
+        model.addAttribute("message", env.getProperty("Registration.Successful"));
+        return "redirect:/login";
+
     }
 
     @PostMapping(value = "/login-success")
     public ModelAndView loginProcess(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        String nationalId = request.getParameter("email");
+        String nationalId = request.getParameter("nationalId");
         UserDto desiredUser = userService.findByNationalId(nationalId);
         session.setAttribute("user", desiredUser);
-        ModelAndView dashboard = new ModelAndView(desiredUser.getRole() + "Dashboard");
+        ModelAndView dashboard = new ModelAndView(desiredUser.getRole().toLowerCase() + "Dashboard");
         dashboard.addObject("user", desiredUser);
         return dashboard;
     }

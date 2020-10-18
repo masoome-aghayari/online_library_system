@@ -3,6 +3,9 @@ ir\nrdc\controller\AdminController.class
 ir\nrdc\configuration\MethodSecurityContext.class
 ir\nrdc\configuration\DatabaseContext.class
 ir\nrdc\service\RoleService.class
+ir\nrdc\service\converter\BookDtoConverter.class
+ir\nrdc\utils\AgeGroup.class
+ir\nrdc\model\entity\Author.class
 ir\nrdc\model\dto\BorrowItemDto.class
 ir\nrdc\model\repository\RoleRepository.class
 ir\nrdc\service\BookService.class

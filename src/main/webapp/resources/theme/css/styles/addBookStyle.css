@@ -1,0 +1,53 @@
+body {
+    background: url(/resources/theme/css/pictures/addBook_background.png) no-repeat fixed;
+    background-position-x: 63vw;
+    background-position-y: 14vh;
+}
+
+label.col-md-4.control-label {
+    max-width: 12vw;
+    color: black;
+}
+
+.btn-menu {
+    background-color: orange;
+    border: none;
+    margin-left: 0;
+    height: 6vh;
+}
+
+.btn-menu:hover {
+    background-color: goldenrod;
+}
+
+.content {
+    margin-top: -3vh;
+}
+
+.main-block {
+    margin-top: 7vh;
+}
+
+.form-control {
+    background-color: aliceblue;
+}
+
+.dropDown {
+    background-color: aliceblue;
+}
+
+.span2 button {
+    margin-left: 5vw;
+}
+
+.left-error {
+    margin-left: 10vw;
+}
+
+.tableizer-table th {
+    color: black;
+}
+
+.message {
+    color: green;
+}

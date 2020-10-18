@@ -19,7 +19,7 @@ body {
 
 .content {
     margin: 15vh 20vw;
-    width: 85vw;
+    width: 80vw;
 }
 
 .tableizer-firstrow {
@@ -33,4 +33,9 @@ body {
 .login-error {
     color: red;
     margin-bottom: 2vh
+}
+
+.error-row {
+    vertical-align: top;
+    height: 5vh;
 }

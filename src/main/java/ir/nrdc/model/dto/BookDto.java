@@ -7,9 +7,12 @@ import lombok.Setter;
 @Getter
 public class BookDto {
     private String name;
-    private String author;
+    private AuthorDto author;
     private String publisher;
     private String ageGroup;
     private String subject;
     private String isbn;
+    private int numberOfPages;
+    private String publishDate;
+    private int number;
 }
