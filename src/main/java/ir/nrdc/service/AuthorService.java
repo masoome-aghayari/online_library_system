@@ -16,9 +16,9 @@ public class AuthorService {
     AuthorDtoConverter authorDtoConverter;
 
     @Transactional
-    public void addNewAuthor(AuthorDto authorDto) {
+    public Author addNewAuthor(AuthorDto authorDto) {
         Author author = authorDtoConverter.convertDtoToAuthor(authorDto);
-        authorRepository.save(author);
+        return authorRepository.save(author);
     }
 
     @Transactional

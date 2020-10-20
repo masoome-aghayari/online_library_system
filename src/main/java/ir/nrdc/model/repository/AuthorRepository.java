@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @org.springframework.stereotype.Repository
 public interface AuthorRepository extends Repository<Author, Integer>, JpaSpecificationExecutor<Integer> {
-    void save(Author author);
+    Author save(Author author);
 
     Optional<Author> findByNameAndFamily(@Param("name") String name, @Param("family") String family);
 }

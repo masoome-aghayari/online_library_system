@@ -1,7 +1,6 @@
 package ir.nrdc.model.repository;
 
 import com.mysql.cj.util.StringUtils;
-import ir.nrdc.model.entity.Role;
 import ir.nrdc.model.entity.User;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -9,7 +8,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class UserSpecifications {
     public static Specification<User> findMaxMatch(String firstName,

@@ -7,70 +7,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5de91daa-c1c5-457f-b2dc-ba1123d277bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/dto/AuthorDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/entity/Author.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/AuthorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/AuthorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/converter/AuthorDtoConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/converter/BookDtoConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/utils/AgeGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/addBook.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/bookMenu.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/memberMenu.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/addBook_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/adminPanel_Background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/book.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/bookMenu_background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/deleteBook_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/home_back.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/registerUser_background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/searchBook_background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/addBookStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/BookSpecifications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/searchBook.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/wooden-background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/bookMenuStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/defaultButtonsStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/paginationStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/searchBookStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Codebanoo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Codebanoo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/SigningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/SigningController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/dto/BookDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/dto/BookDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/entity/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/AuthorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/UserSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/UserSpecifications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/AuthorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/validator/BookValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/validator/BookValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/converter/BookDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/converter/BookDtoConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/constant_numbers.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/constant_numbers.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/validation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/validation.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/addBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/addBook.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/adminDashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/adminDashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/pictures/books.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/homeStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/homeStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/loginStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/loginStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/bookMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/bookMenu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/addBookStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/addBookStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/registerStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/registerStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/constant_numbers.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/constant_numbers.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/configuration/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/configuration/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/controller/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/controller/SigningController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/controller/SigningController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/dto/BookDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/dto/BookDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/entity/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/entity/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/repository/AuthorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/repository/AuthorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/repository/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/repository/BookRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/repository/UserSpecifications.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/repository/UserSpecifications.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/service/AuthorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/validator/BookValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/validator/BookValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/service/converter/BookDtoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/service/converter/BookDtoConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/validation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/validation.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/constant_numbers.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/constant_numbers.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/configuration/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/configuration/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/controller/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/controller/SigningController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/controller/SigningController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/dto/BookDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/dto/BookDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/entity/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/entity/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/repository/AuthorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/repository/AuthorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/repository/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/repository/BookRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/repository/UserSpecifications.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/repository/UserSpecifications.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/AuthorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/validator/BookValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/validator/BookValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/converter/BookDtoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/converter/BookDtoConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/validation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/validation.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/addBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/addBook.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/adminDashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/adminDashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/bookMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/bookMenu.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/pictures/books.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/homeStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/homeStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/loginStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/loginStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/addBookStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/addBookStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/registerStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/registerStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,8 +89,8 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="Jsp File" />
-        <option value="CSS File" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -140,7 +130,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="Robert C.martin" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HW21" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.18882681" />
@@ -148,20 +138,21 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages" />
-      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages\styles" />
-      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ir.nrdc.model.repository" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\resources" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\resources\theme\css" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\resources\Themes" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ir.nrdc.model.repository" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\resources\theme\css\styles" />
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages" />
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages\styles" />
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main" />
     </key>
   </component>
   <component name="RunManager">
@@ -275,7 +266,8 @@
       <workItem from="1602584466665" duration="66978000" />
       <workItem from="1602829162977" duration="35093000" />
       <workItem from="1602913900098" duration="45807000" />
-      <workItem from="1602997640413" duration="2194000" />
+      <workItem from="1602997640413" duration="41556000" />
+      <workItem from="1603087755685" duration="73604000" />
     </task>
     <servers />
   </component>
@@ -306,78 +298,90 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="575" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1602883077646" />
-    <state width="1321" height="267" key="GridCell.Tab.0.bottom" timestamp="1602999864517">
+    <state x="549" y="171" key="FileChooserDialogImpl" timestamp="1603135783520">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.0.center" timestamp="1602999864517">
+    <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603135783520" />
+    <state width="1321" height="477" key="GridCell.Tab.0.bottom" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.0.left" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.0.center" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.0.right" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.0.left" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.1.bottom" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.0.right" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.1.center" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.1.bottom" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.1.left" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.1.center" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.1.right" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.1.left" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.2.bottom" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.1.right" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.2.center" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.2.bottom" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.2.left" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.2.center" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.2.right" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.2.left" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.3.bottom" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.2.right" timestamp="1603209491747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.3.center" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1603209491747" />
+    <state width="1321" height="477" key="GridCell.Tab.3.bottom" timestamp="1603209491762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.3.left" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603209491762" />
+    <state width="1321" height="477" key="GridCell.Tab.3.center" timestamp="1603209491762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
-    <state width="1321" height="267" key="GridCell.Tab.3.right" timestamp="1602999864517">
+    <state width="1321" height="477" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1603209491762" />
+    <state width="1321" height="477" key="GridCell.Tab.3.left" timestamp="1603209491762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="267" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1602999864517" />
+    <state width="1321" height="477" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1603209491762" />
+    <state width="1321" height="477" key="GridCell.Tab.3.right" timestamp="1603209491762">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1321" height="477" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1603209491762" />
+    <state x="592" y="350" key="ReplaceDuplicatesPrompt" timestamp="1603114286011">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="592" y="350" key="ReplaceDuplicatesPrompt/0.0.1536.824@0.0.1536.824" timestamp="1603114286011" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1602916064726">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602916064726" />
-    <state x="499" y="176" key="extract.method.dialog" timestamp="1602865769241">
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1603089672884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="176" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1602865769241" />
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1603089672884" />
+    <state x="499" y="176" width="538" height="481" key="extract.method.dialog" timestamp="1603114280633">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="176" width="538" height="481" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1603114280633" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1602771829171">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -400,9 +404,24 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ir/nrdc/service/BookService.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ir/nrdc/service/AuthorService.java</url>
           <line>19</line>
-          <option name="timeStamp" value="33" />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminController.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminController.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/homeStyle.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/defaultButtonsStyle.css"/>">
     <title>admin dashboard</title>
     <style>
         body {
@@ -16,9 +17,16 @@
             background-position-y: bottom;
             background-size: cover;
         }
+
+        .btn-logout {
+            margin-left: 2vw;
+        }
     </style>
 </head>
 <body>
+<form>
+    <button type="submit" class="btn btn-success btn-group btn-logout btn-home" formaction="/logout">Logout</button>
+</form>
 <div class="main-block">
     <form>
         <div class="span2">

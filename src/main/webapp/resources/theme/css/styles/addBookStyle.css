@@ -9,17 +9,6 @@ label.col-md-4.control-label {
     color: black;
 }
 
-.btn-menu {
-    background-color: orange;
-    border: none;
-    margin-left: 0;
-    height: 6vh;
-}
-
-.btn-menu:hover {
-    background-color: goldenrod;
-}
-
 .content {
     margin-top: -3vh;
 }

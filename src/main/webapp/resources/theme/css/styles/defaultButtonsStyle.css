@@ -1,0 +1,27 @@
+.btn-home {
+    margin: 2vh 2vw;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.btn-logout {
+    background-color: #a90fb3;
+    border: none;
+    margin-left: 0;
+    height: 6vh;
+}
+
+.btn-logout:hover {
+    background-color: #730f7d;
+}
+
+.btn-menu {
+    background-color: orange;
+    border: none;
+    margin-left: 0;
+    height: 6vh;
+}
+
+.btn-menu:hover {
+    background-color: goldenrod;
+}

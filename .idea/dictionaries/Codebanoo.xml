@@ -2,9 +2,14 @@
   <dictionary name="Codebanoo">
     <words>
       <w>basenames</w>
+      <w>checkmark</w>
+      <w>dtos</w>
       <w>firstrow</w>
       <w>nrdc</w>
+      <w>searchform</w>
+      <w>submitform</w>
       <w>tableizer</w>
+      <w>theform</w>
     </words>
   </dictionary>
 </component>

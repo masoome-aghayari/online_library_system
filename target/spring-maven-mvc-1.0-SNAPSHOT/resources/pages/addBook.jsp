@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/dc1776693c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/registerStyle.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/addBookStyle.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/defaultButtonsStyle.css"/>">
     <title>add Book</title>
 </head>
 <body onload="checkMessage()">
@@ -17,6 +18,7 @@
     <button type="submit" class="btn btn-success btn-group btn-home" formaction="/admin">Home</button>
     <button type="submit" class="btn btn-success btn-group btn-menu btn-home" formaction="/admin/bookMenu">Book Menu
     </button>
+    <button type="submit" class="btn btn-success btn-group btn-logout btn-home" formaction="/logout">Logout</button>
 </form>
 <div class="main-block">
     <form:form modelAttribute="book" class="content" action="/admin/books/addBook-process" method="POST">

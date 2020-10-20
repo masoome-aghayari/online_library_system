@@ -9,38 +9,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/homeStyle.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/bookMenuStyle.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/defaultButtonsStyle.css"/>">
     <title>book menu</title>
-    <style>
-        body {
-            background: url(/resources/theme/css/pictures/bookMenu_background.jpg) no-repeat fixed;
-            background-size: cover;
-            background-position-y: bottom;
-            background-position-x: right;
-        }
-
-        .main-block {
-            margin: 25vh 12vw;
-        }
-
-        .btn-addBook {
-            border: none;
-            background-color: #f30054;
-        }
-
-        .btn-searchBook {
-            border: none;
-            background-color: #00c42d;
-        }
-    </style>
 </head>
 <body>
+<form>
+    <button type="submit" class="btn btn-success btn-group btn-home" formaction="/admin">Home</button>
+    <button type="submit" class="btn btn-success btn-group btn-logout btn-home" formaction="/logout">Logout</button>
+</form>
 <div class="main-block">
     <form>
         <div class="span2">
             <button formaction="/admin/books/addBook" class="btn btn-primary btn-block btn-addBook"
                     type="submit">Add New Book
             </button>
-            <button formaction="/admin/books/search/1" class="btn btn-success btn-block btn-searchBook"
+            <button formaction="/admin/books/searchPage" class="btn btn-success btn-block btn-searchBook"
                     type="submit">Search Book
             </button>
         </div>

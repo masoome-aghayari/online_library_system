@@ -9,6 +9,7 @@ import ir.nrdc.validator.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -65,21 +68,52 @@ public class AdminController {
         return showAddBookForm(model);
     }
 
-    @GetMapping(value = "searchProcess/{pageNumber}")
-    public ModelAndView searchProcess(@ModelAttribute("user") UserDto userDto,
-                                      @PathVariable(required = false) int pageNumber) {
-        long totalPages = userService.getTotalNumberOfPages(userDto);
-        ModelAndView searchUser = new ModelAndView("searchUser");
+    @PostMapping(value = "members/searchProcess/{pageNumber}")
+    @ResponseBody
+    public void searchProcess(HttpServletRequest request, @ModelAttribute("member") UserDto member,
+                              @PathVariable(required = false) int pageNumber) {
+        HttpSession session = request.getSession(false);
+        session.setAttribute("searchedMember", member);
+        if (member == null)
+            member = (UserDto) session.getAttribute("searchedMember");
+        long totalPages = userService.getTotalNumberOfPages(member);
+        ModelAndView searchMember = new ModelAndView("searchMember");
         if (totalPages == 0)
-            searchUser.addObject("message", env.getProperty("No.User.Found"));
+            searchMember.addObject("message", env.getProperty("No.Member.Found"));
         else {
-            int limit = Integer.parseInt(env.getProperty("Page.Rows"));
-            List<UserDto> matchedUsers = userService.findMaxMatch(userDto, pageNumber - 1, limit);
-            searchUser.addObject("users", matchedUsers)
+            List<UserDto> matchedMembers = userService.findMaxMatch(member, pageNumber - 1,
+                    Integer.parseInt(env.getProperty("Page.Rows")));
+            searchMember.addObject("members", matchedMembers)
                     .addObject("pageNumber", pageNumber)
                     .addObject("totalPages", totalPages)
-                    .addObject("userDto", userDto);
+                    .addObject("member", member);
         }
-        return searchUser;
+//        return searchMember;
+    }
+
+    @GetMapping(value = "books/searchPage")
+    public ModelAndView showSearchPage() {
+        ModelAndView search = new ModelAndView("searchBook");
+        search.addObject("book", new BookDto())
+                .addObject("pageNumber", 1);
+        return search;
+    }
+
+    @PostMapping(value = "books/searchProcess/{pageNumber}")
+    @ResponseBody
+    public List<BookDto> bookSearchProcess(@RequestBody BookDto bookDto,
+                                           @PathVariable(required = false) int pageNumber) {
+        long totalPages = bookService.getTotalNumberOfPages(bookDto);
+        if (totalPages == 0)
+            return null;
+        if (pageNumber > totalPages)
+            pageNumber = (int) totalPages;
+        return bookService.findMaxMatch(bookDto, pageNumber - 1, Integer.parseInt(env.getProperty("Page.Rows")));
+    }
+
+    @PostMapping(value = "books/deleteBooks", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public void deleteBooksProcess(@RequestBody List<BookDto> bookDtos) {
+        bookService.deleteBooks(bookDtos);
     }
 }

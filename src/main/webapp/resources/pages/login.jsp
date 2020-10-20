@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/dc1776693c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/registerStyle.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/loginStyle.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/defaultButtonsStyle.css"/>">
     <title>login form</title>
 </head>
 <body>
@@ -27,7 +28,9 @@
             </thead>
             <tbody>
             <tr class="error-row">
-                <td colspan="2"><div class="login-error"><strong>${message}</strong></div></td>
+                <td colspan="2">
+                    <div class="login-error"><strong>${message}</strong></div>
+                </td>
             </tr>
             <tr>
                 <td><form:label path="nationalId" cssStyle="margin-left: 0">National Id:</form:label></td>
