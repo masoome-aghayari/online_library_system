@@ -57,23 +57,69 @@
 <script>
     function sendToSearch(pageNumber) {
         let member = createJsonSearchObject();
-        const request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
+        const searchRequest = new XMLHttpRequest();
+        searchRequest.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                createResultTable(this.response);
+                showResult(this.response);
             }
         };
-        request.open("POST", "/admin/members/searchProcess/" + pageNumber, true);
-        request.setRequestHeader("Content-type", "application/json");
+        searchRequest.open("POST", "/admin/members/searchProcess/" + pageNumber, true);
+        searchRequest.setRequestHeader("Content-type", "application/json");
+        searchRequest.dataType = "json";
+        searchRequest.responseType = "json";
+        member = JSON.stringify(member);
+        searchRequest.send(member);
+    }
+
+    function sendToEdit(id) {
+        let member = createJsonObject(id);
+        const request = new XMLHttpRequest();
+        request.open("POST", "/admin/members/editMember", true);
         request.dataType = "json";
         request.responseType = "json";
         member = JSON.stringify(member);
         request.send(member);
     }
 
+    function sendToDelete() {
+        let checkedMembers = collectCheckedBooks();
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                document.forms[0].submit();
+            }
+        };
+        request.open("POST", "/admin/books/deleteBooks/${pageNumber}", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.dataType = "json";
+        request.responseType = "json";
+        checkedMembers = JSON.stringify(checkedMembers);
+        request.send(checkedMembers);
+    }
+
+    function showResult(members) {
+        removePreviousResult();
+        if (typeof members === 'undefined' || members == null) {
+            removeDeleteButton();
+            createResultText();
+        } else {
+            createResultTable(members);
+            if (!isExistsDeleteButton())
+                createDeleteButton();
+        }
+    }
+
+    function createResultText() {
+        let resultParagraph = document.createElement('p');
+        resultParagraph.setAttribute("class", "result-text");
+        resultParagraph.setAttribute("id", "result");
+        resultParagraph.innerHTML = "No Result Found";
+        document.getElementById("search-result").append(resultParagraph);
+    }
+
     function createResultTable(members) {
         let table = document.createElement('table');
-        table.setAttribute("id", "result-table");
+        table.setAttribute("id", "result");
         table.setAttribute("class", "table table-hover table table-bordered table-striped");
         let i;
         table.insertRow(0).outerHTML =
@@ -104,43 +150,7 @@
                     </td>
                 </tr>`;
         }
-        const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute("class", "btn btn-group btn-danger btn-delete");
-        deleteBtn.setAttribute("id", "btn-delete");
-        deleteBtn.setAttribute("onclick", "sendToDelete()");
-        deleteBtn.appendChild(document.createTextNode("Delete Selected Items"));
         document.getElementById("search-result").append(table);
-        document.getElementById("delete-btn").append(deleteBtn);
-    }
-
-    function sendToEdit(id) {
-        let member = createJsonObject(id);
-        const request = new XMLHttpRequest();
-        request.open("POST", "/admin/members/editMember", true);
-        request.dataType = "json";
-        request.responseType = "json";
-        member = JSON.stringify(member);
-        request.send(member);
-    }
-
-    function sendToDelete() {
-        let listOfMembers = [];
-        $('input[type=checkbox]').each(function () {
-            if (this.checked)
-                listOfMembers.push(createJsonObject($(this).attr("id")));
-        });
-        const request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.forms[0].submit();
-            }
-        };
-        request.open("POST", "/admin/books/deleteBooks/${pageNumber}", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.dataType = "json";
-        request.responseType = "json";
-        listOfMembers = JSON.stringify(listOfMembers);
-        request.send(listOfMembers);
     }
 
     function createJsonSearchObject() {
@@ -158,6 +168,41 @@
             "lastName": document.getElementById("lastName" + i).innerHTML,
             "nationalId": document.getElementById("nationalId" + i).innerHTML,
         };
+    }
+
+    function removePreviousResult() {
+        let previousResult = document.getElementById("result");
+        if (typeof (previousResult) != 'undefined' && previousResult != null) {
+            document.getElementById("search-result").removeChild(previousResult);
+        }
+    }
+
+    function isExistsDeleteButton() {
+        let btnDelete = document.getElementById("btn-delete");
+        return typeof (btnDelete) != 'undefined' && btnDelete != null;
+    }
+
+    function removeDeleteButton() {
+        if (isExistsDeleteButton())
+            document.getElementById("btn-delete").remove();
+    }
+
+    function createDeleteButton() {
+        const deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute("class", "btn btn-group btn-danger btn-delete");
+        deleteBtn.setAttribute("id", "btn-delete");
+        deleteBtn.setAttribute("onclick", "sendToDelete()");
+        deleteBtn.appendChild(document.createTextNode("Delete Selected Items"));
+        document.getElementById("delete-btn").append(deleteBtn);
+    }
+
+    function collectCheckedBooks() {
+        let listOfBooks = [];
+        $('input[type=checkbox]').each(function () {
+            if (this.checked)
+                listOfBooks.push(createJsonObject($(this).attr("id")));
+        });
+        return listOfBooks;
     }
 </script>
 </html>

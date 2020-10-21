@@ -76,6 +76,21 @@
         searchrequest.send(book);
     }
 
+    function sendToDelete() {
+        let checkedBooks = collectCheckedBooks();
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200)
+                sendToSearch(${pageNumber});
+        };
+        request.open("POST", "/admin/books/deleteBooks", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.dataType = "json";
+        request.responseType = "text";
+        checkedBooks = JSON.stringify(checkedBooks);
+        request.send(checkedBooks);
+    }
+
     function showResult(books) {
         removePreviousResult();
         if (typeof books === 'undefined' || books == null) {
@@ -94,78 +109,6 @@
         resultParagraph.setAttribute("id", "result");
         resultParagraph.innerHTML = "No Result Found";
         document.getElementById("search-result").append(resultParagraph);
-    }
-
-    function sendToDelete() {
-        let checkedBooks = collectCheckedBooks();
-        const request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200)
-                sendToSearch(${pageNumber});
-        };
-        request.open("POST", "/admin/books/deleteBooks", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.dataType = "json";
-        request.responseType = "text";
-        checkedBooks = JSON.stringify(checkedBooks);
-        request.send(checkedBooks);
-    }
-
-    function createJsonSearchObject() {
-        return {
-            "name": document.getElementById("name").value,
-            "isbn": document.getElementById("isbn").value,
-            "author": {
-                "name": document.getElementById("author.name").value,
-                "family": document.getElementById("author.family").value,
-            }
-        };
-    }
-
-    function createJsonObject(i) {
-        return {
-            "name": document.getElementById("name" + i).innerHTML,
-            "isbn": document.getElementById("isbn" + i).innerHTML,
-            "author": {
-                "name": document.getElementById("author.name" + i).innerHTML,
-                "family": document.getElementById("author.family" + i).innerHTML,
-            }
-        };
-    }
-
-    function collectCheckedBooks() {
-        let listOfBooks = [];
-        $('input[type=checkbox]').each(function () {
-            if (this.checked)
-                listOfBooks.push(createJsonObject($(this).attr("id")));
-        });
-        return listOfBooks;
-    }
-
-    function removePreviousResult() {
-        let previousResult = document.getElementById("result");
-        if (typeof (previousResult) != 'undefined' && previousResult != null) {
-            document.getElementById("search-result").removeChild(previousResult);
-        }
-    }
-
-    function isExistsDeleteButton() {
-        let btnDelete = document.getElementById("btn-delete");
-        return typeof (btnDelete) != 'undefined' && btnDelete != null;
-    }
-
-    function removeDeleteButton() {
-        if (isExistsDeleteButton())
-            document.getElementById("btn-delete").remove();
-    }
-
-    function createDeleteButton() {
-        const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute("class", "btn btn-group btn-danger btn-delete");
-        deleteBtn.setAttribute("id", "btn-delete");
-        deleteBtn.setAttribute("onclick", "sendToDelete()");
-        deleteBtn.appendChild(document.createTextNode("Delete Selected Items"));
-        document.getElementById("delete-btn").append(deleteBtn);
     }
 
     function createResultTable(books) {
@@ -196,6 +139,63 @@
                 </tr>`;
         }
         document.getElementById("search-result").append(table);
+    }
+
+    function createJsonSearchObject() {
+        return {
+            "name": document.getElementById("name").value,
+            "isbn": document.getElementById("isbn").value,
+            "author": {
+                "name": document.getElementById("author.name").value,
+                "family": document.getElementById("author.family").value,
+            }
+        };
+    }
+
+    function createJsonObject(i) {
+        return {
+            "name": document.getElementById("name" + i).innerHTML,
+            "isbn": document.getElementById("isbn" + i).innerHTML,
+            "author": {
+                "name": document.getElementById("author.name" + i).innerHTML,
+                "family": document.getElementById("author.family" + i).innerHTML,
+            }
+        };
+    }
+
+    function removePreviousResult() {
+        let previousResult = document.getElementById("result");
+        if (typeof (previousResult) != 'undefined' && previousResult != null) {
+            document.getElementById("search-result").removeChild(previousResult);
+        }
+    }
+
+    function isExistsDeleteButton() {
+        let btnDelete = document.getElementById("btn-delete");
+        return typeof (btnDelete) != 'undefined' && btnDelete != null;
+    }
+
+    function removeDeleteButton() {
+        if (isExistsDeleteButton())
+            document.getElementById("btn-delete").remove();
+    }
+
+    function createDeleteButton() {
+        const deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute("class", "btn btn-group btn-danger btn-delete");
+        deleteBtn.setAttribute("id", "btn-delete");
+        deleteBtn.setAttribute("onclick", "sendToDelete()");
+        deleteBtn.appendChild(document.createTextNode("Delete Selected Items"));
+        document.getElementById("delete-btn").append(deleteBtn);
+    }
+
+    function collectCheckedBooks() {
+        let listOfBooks = [];
+        $('input[type=checkbox]').each(function () {
+            if (this.checked)
+                listOfBooks.push(createJsonObject($(this).attr("id")));
+        });
+        return listOfBooks;
     }
 </script>
 </html>

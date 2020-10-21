@@ -59,7 +59,7 @@ public class SigningController {
         }
         userService.registerUser(user);
         model.addAttribute("message", env.getProperty("Registration.Successful"));
-        return "redirect:/login";
+        return "login";
 
     }
 

@@ -10,11 +10,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/dc1776693c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/registerStyle.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/defaultButtonsStyle.css"/>">
     <title>Registration Form</title>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/">
-    <button type="submit" id="home" name="home" class="btn btn-success btn-group btn-home">Home</button>
+    <button type="submit" class="btn btn-success btn-group btn-home">Home</button>
 </form>
 <div class="main-block">
     <form:form modelAttribute="user" class="content" action="register-process" method="POST"
