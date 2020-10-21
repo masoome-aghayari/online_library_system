@@ -21,6 +21,11 @@
         .btn-logout {
             margin-left: 2vw;
         }
+
+        .main-block {
+            margin-top: 15vh;
+            margin-left: 57vw;
+        }
     </style>
 </head>
 <body>

@@ -7,15 +7,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5de91daa-c1c5-457f-b2dc-ba1123d277bb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/UserIds.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminMemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/addBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/addBook.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/controller/AdminMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/entity/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/entity/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/entity/RoleName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/utils/RoleName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/model/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/converter/UserDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/nrdc/service/converter/UserDtoConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/adminDashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/adminDashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/memberDashboard.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/searchBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/searchBook.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/pages/searchMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/pages/searchMember.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/loginStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/css/styles/loginStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/controller/BookController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/controller/MemberController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/entity/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/entity/Author.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/entity/RoleName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/model/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/model/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/nrdc/service/converter/UserDtoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/nrdc/service/converter/UserDtoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/controller/BookController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/controller/MemberController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/entity/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/entity/Author.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/entity/RoleName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/model/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/converter/UserDtoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/WEB-INF/classes/ir/nrdc/service/converter/UserDtoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/addBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/addBook.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/adminDashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/adminDashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/memberDashboard.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/searchBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/searchBook.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/searchMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/pages/searchMember.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/loginStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-maven-mvc-1.0-SNAPSHOT/resources/theme/css/styles/loginStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +73,9 @@
         <option value="spring-beans.schema" />
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="CSS File" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -92,21 +123,21 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\resources\theme\css\styles" />
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages" />
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages\styles" />
+      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ir.nrdc.model.repository" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\resources" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\resources\theme\css" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages" />
       <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\resources\Themes" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ir.nrdc.model.repository" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\resources\theme\css\styles" />
-      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages" />
-      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main\webapp\pages\styles" />
-      <recent name="C:\Users\Codebanoo\IdeaProjects\online_library_system\src\main" />
     </key>
   </component>
   <component name="RunManager">
@@ -195,6 +226,11 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
             </expand>
             <select />
           </treeState>
@@ -219,7 +255,7 @@
       <workItem from="1603087755685" duration="76107000" />
       <workItem from="1603214559140" duration="5537000" />
       <workItem from="1603222051936" duration="22832000" />
-      <workItem from="1603305404296" duration="973000" />
+      <workItem from="1603305404296" duration="10651000" />
     </task>
     <servers />
   </component>
@@ -242,10 +278,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1602931465291" />
-    <state x="571" y="282" width="393" height="265" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1602669419188">
+    <state x="571" y="282" width="393" height="265" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1603315523113">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="571" y="282" width="393" height="265" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1602669419188" />
+    <state x="571" y="282" width="393" height="265" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1603315523113" />
     <state x="499" y="163" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603213427240">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -258,70 +294,70 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603135783520" />
-    <state width="1321" height="119" key="GridCell.Tab.0.bottom" timestamp="1603286277466">
+    <state width="1321" height="252" key="GridCell.Tab.0.bottom" timestamp="1603315924217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603286277466" />
-    <state width="1321" height="119" key="GridCell.Tab.0.center" timestamp="1603286277466">
+    <state width="1321" height="252" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603315924217" />
+    <state width="1321" height="252" key="GridCell.Tab.0.center" timestamp="1603315924217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603286277466" />
-    <state width="1321" height="119" key="GridCell.Tab.0.left" timestamp="1603286277466">
+    <state width="1321" height="252" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603315924217" />
+    <state width="1321" height="252" key="GridCell.Tab.0.left" timestamp="1603315924217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603286277466" />
-    <state width="1321" height="119" key="GridCell.Tab.0.right" timestamp="1603286277466">
+    <state width="1321" height="252" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603315924217" />
+    <state width="1321" height="252" key="GridCell.Tab.0.right" timestamp="1603315924217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603286277466" />
-    <state width="1321" height="119" key="GridCell.Tab.1.bottom" timestamp="1603286277467">
+    <state width="1321" height="252" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603315924217" />
+    <state width="1321" height="252" key="GridCell.Tab.1.bottom" timestamp="1603316130477">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603286277467" />
-    <state width="1321" height="119" key="GridCell.Tab.1.center" timestamp="1603286277467">
+    <state width="1321" height="252" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603316130477" />
+    <state width="1321" height="252" key="GridCell.Tab.1.center" timestamp="1603316130476">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1603286277467" />
-    <state width="1321" height="119" key="GridCell.Tab.1.left" timestamp="1603286277466">
+    <state width="1321" height="252" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1603316130476" />
+    <state width="1321" height="252" key="GridCell.Tab.1.left" timestamp="1603316130476">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1603286277466" />
-    <state width="1321" height="119" key="GridCell.Tab.1.right" timestamp="1603286277467">
+    <state width="1321" height="252" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1603316130476" />
+    <state width="1321" height="252" key="GridCell.Tab.1.right" timestamp="1603316130477">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603286277467" />
-    <state width="1321" height="119" key="GridCell.Tab.2.bottom" timestamp="1603286277467">
+    <state width="1321" height="252" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603316130477" />
+    <state width="1321" height="252" key="GridCell.Tab.2.bottom" timestamp="1603315923936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603286277467" />
-    <state width="1321" height="119" key="GridCell.Tab.2.center" timestamp="1603286277467">
+    <state width="1321" height="252" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603315923936" />
+    <state width="1321" height="252" key="GridCell.Tab.2.center" timestamp="1603315923936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1603286277467" />
-    <state width="1321" height="119" key="GridCell.Tab.2.left" timestamp="1603286277467">
+    <state width="1321" height="252" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1603315923936" />
+    <state width="1321" height="252" key="GridCell.Tab.2.left" timestamp="1603315923936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1603286277467" />
-    <state width="1321" height="119" key="GridCell.Tab.2.right" timestamp="1603286277467">
+    <state width="1321" height="252" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1603315923936" />
+    <state width="1321" height="252" key="GridCell.Tab.2.right" timestamp="1603315923936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1603286277467" />
-    <state width="1321" height="119" key="GridCell.Tab.3.bottom" timestamp="1603286277469">
+    <state width="1321" height="252" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1603315923936" />
+    <state width="1321" height="252" key="GridCell.Tab.3.bottom" timestamp="1603315923936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603286277469" />
-    <state width="1321" height="119" key="GridCell.Tab.3.center" timestamp="1603286277468">
+    <state width="1321" height="252" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603315923936" />
+    <state width="1321" height="252" key="GridCell.Tab.3.center" timestamp="1603315923936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1603286277468" />
-    <state width="1321" height="119" key="GridCell.Tab.3.left" timestamp="1603286277468">
+    <state width="1321" height="252" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1603315923936" />
+    <state width="1321" height="252" key="GridCell.Tab.3.left" timestamp="1603315923936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1603286277468" />
-    <state width="1321" height="119" key="GridCell.Tab.3.right" timestamp="1603286277468">
+    <state width="1321" height="252" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1603315923936" />
+    <state width="1321" height="252" key="GridCell.Tab.3.right" timestamp="1603315923936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1321" height="119" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1603286277468" />
+    <state width="1321" height="252" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1603315923936" />
     <state x="592" y="350" key="ReplaceDuplicatesPrompt" timestamp="1603114286011">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

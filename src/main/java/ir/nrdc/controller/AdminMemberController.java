@@ -1,5 +1,6 @@
 package ir.nrdc.controller;
 
+import ir.nrdc.model.UserIds;
 import ir.nrdc.model.dto.UserDto;
 import ir.nrdc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin/members")
 @PropertySource("classpath:messages.properties")
-@PreAuthorize("hasAuthority('MEMBER')")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class AdminMemberController {
     @Autowired
     UserService userService;
@@ -33,7 +34,7 @@ public class AdminMemberController {
 
     @PostMapping(value = "searchProcess/{pageNumber}")
     @ResponseBody
-    public List<UserDto> searchProcess(@ModelAttribute("member") UserDto member, @PathVariable(required = false) int pageNumber) {
+    public List<UserDto> searchProcess(@RequestBody UserDto member, @PathVariable(required = false) int pageNumber) {
         long totalPages = userService.getTotalNumberOfPages(member);
         if (totalPages == 0)
             return null;
@@ -44,10 +45,9 @@ public class AdminMemberController {
 
     @PostMapping(value = "deleteMembers", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public void deleteMembersProcess(@RequestBody List<UserDto> userDtos) {
-        userService.deleteMembers(userDtos);
+    public void deleteMembersProcess(@RequestBody List<UserIds> memberIds) {
+        userService.deleteMembers(memberIds);
     }
-
 
     @PostMapping(value = "editMember", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

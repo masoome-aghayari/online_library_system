@@ -1,4 +1,4 @@
-package ir.nrdc.model.entity;
+package ir.nrdc.utils;
 
 public enum RoleName {
     ADMIN,

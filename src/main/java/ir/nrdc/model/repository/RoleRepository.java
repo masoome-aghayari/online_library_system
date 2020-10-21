@@ -1,7 +1,6 @@
 package ir.nrdc.model.repository;
 
 import ir.nrdc.model.entity.Role;
-import ir.nrdc.model.entity.RoleName;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;

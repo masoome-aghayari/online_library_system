@@ -39,3 +39,6 @@ body {
     vertical-align: top;
     height: 5vh;
 }
+.main-block{
+    margin-top: -4vh;
+}

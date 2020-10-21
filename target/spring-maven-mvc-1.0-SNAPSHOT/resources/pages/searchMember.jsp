@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/addBookStyle.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/defaultButtonsStyle.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/searchBookStyle.css"/>">
-    <title>search book</title>
+    <title>search member</title>
 </head>
 <body>
 <form>
@@ -73,28 +73,36 @@
 
     function sendToEdit(id) {
         let member = createJsonObject(id);
-        const request = new XMLHttpRequest();
-        request.open("POST", "/admin/members/editMember", true);
-        request.dataType = "json";
-        request.responseType = "json";
+        const editRequest = new XMLHttpRequest();
+        editRequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                console.log(this.responseText);
+                console.log(this.response);
+                window.alert(this.responseText);
+            }
+        };
+        editRequest.open("POST", "/admin/members/editMember", true);
+        editRequest.setRequestHeader("Content-type", "application/json");
+        editRequest.dataType = "json";
+        editRequest.responseType = "text";
         member = JSON.stringify(member);
-        request.send(member);
+        editRequest.send(member);
     }
 
     function sendToDelete() {
-        let checkedMembers = collectCheckedBooks();
-        const request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
+        let checkedMembers = collectCheckedMembers();
+        const deleteRequest = new XMLHttpRequest();
+        deleteRequest.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                document.forms[0].submit();
+                sendToSearch(${pageNumber});
             }
         };
-        request.open("POST", "/admin/books/deleteBooks/${pageNumber}", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.dataType = "json";
-        request.responseType = "json";
+        deleteRequest.open("POST", "/admin/members/deleteMembers", true);
+        deleteRequest.setRequestHeader("Content-type", "application/json");
+        deleteRequest.dataType = "json";
+        deleteRequest.responseType = "json";
         checkedMembers = JSON.stringify(checkedMembers);
-        request.send(checkedMembers);
+        deleteRequest.send(checkedMembers);
     }
 
     function showResult(members) {
@@ -124,9 +132,9 @@
         let i;
         table.insertRow(0).outerHTML =
             `<tr class="header">
-                <th>Member FirstName</th>
-                <th>Member LastName</th>
-                <th>NationalId</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>National Id</th>
                 <th>MobileNumber</th>
                 <th>Email</th>
             </tr>`;
@@ -134,19 +142,26 @@
             const member = members[i];
             table.insertRow(i + 1).outerHTML =
                 `<tr>
-                    <td id="firstName` + i + `">` + member.firstName + `</td>
-                    <td id="lastName` + i + `">` + member.lastName + `</td>
-                    <td id="nationalId` + i + `">` + member.nationalId + `</td>
-                    <td id="mobileNumber` + i + `">` + member.mobileNumber + `</td>
-                    <td id="email` + i + `">` + member.email + `</td>
-                    <td hidden id="id` + i + `">` + member.id + `</td>
+                    <td><input id="firstName` + member.id + `" type="text" class="form-control" value="` + member.firstName + `"
+                    onkeypress="return isAlphabetKey(event)" required/></td>
+                    <td><input id="lastName` + member.id + `" type="text" class="form-control" value="` + member.lastName + `"
+                    onkeypress="return isAlphabetKey(event)" required/></td>
+                    <td><input id="nationalId` + member.id + `" type="text" class="form-control" value="` + member.nationalId + `"
+                    onkeypress="return isNumberKey(event)" required/></td>
+                    <td><input id="mobileNumber` + member.id + `" type="text" class="form-control" value="` + member.mobileNumber + `"
+                    pattern="9((0[1-3]|5)|(1[0-9])|(2[0-2])|(3(1|[3-9]))|(9[0-1]))[0-9]{7}" title="9197417221"
+                    onkeypress="return isNumberKey(event)" required/></td>
+                    <td><input id="email` + member.id + `" type="text" class="form-control" value="` + member.email + `"
+                    pattern="^[\\w!#$%&'*+/=?\`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?\`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$"
+                    title="simple@example.com" required/></td>
+                    <td hidden id="` + member.id + `">` + member.id + `</td>
                     <td>
-                        <label class="container"><input type="checkbox" id="` + i + `">
+                        <label class="container"><input type="checkbox" id="` + member.id + `">
                         <span class="checkmark"></span>
                         </label>
                     </td>
                     <td>
-                        <button class="btn btn-group btn-primary" onclick="sendToEdit(` + i + `)">Edit</button>
+                        <input type="button" class="btn btn-group btn-primary" onclick="sendToEdit(` + member.id + `)" value="Update"/>
                     </td>
                 </tr>`;
         }
@@ -161,13 +176,21 @@
         };
     }
 
-    function createJsonObject(i) {
+    function createJsonIntegerObject(id) {
         return {
-            "id": document.getElementById("id" + i).innerHTML,
-            "firstName": document.getElementById("firstName" + i).innerHTML,
-            "lastName": document.getElementById("lastName" + i).innerHTML,
-            "nationalId": document.getElementById("nationalId" + i).innerHTML,
+            "userId": id
         };
+    }
+
+    function createJsonObject(id) {
+        return {
+            "id": id,
+            "firstName": document.getElementById("firstName" + id).value,
+            "lastName": document.getElementById("lastName" + id).value,
+            "nationalId": document.getElementById("nationalId" + id).value,
+            "mobileNumber": document.getElementById("mobileNumber" + id).value,
+            "email": document.getElementById("email" + id).value
+        }
     }
 
     function removePreviousResult() {
@@ -196,13 +219,33 @@
         document.getElementById("delete-btn").append(deleteBtn);
     }
 
-    function collectCheckedBooks() {
-        let listOfBooks = [];
+    function collectCheckedMembers() {
+        let listOfMembers = [];
         $('input[type=checkbox]').each(function () {
             if (this.checked)
-                listOfBooks.push(createJsonObject($(this).attr("id")));
+                listOfMembers.push(createJsonIntegerObject($(this).attr("id")));
         });
-        return listOfBooks;
+        return listOfMembers;
+    }
+
+    function isNumberKey(event) {
+        const charCode = event.charCode ? event.charCode : event.keyCode;
+        const pattern = /[0-9]+$/;
+        const isValid = pattern.test(String.fromCharCode(charCode));
+        if (!isValid) {
+            window.alert("Just Digits Are Allowed");
+            return false;
+        }
+    }
+
+    function isAlphabetKey(event) {
+        const charCode = event.charCode ? event.charCode : event.keyCode;
+        const pattern = /[a-zA-Z]+([. ]*[a-zA-Z]+)*$/;
+        const isValid = pattern.test(String.fromCharCode(charCode));
+        if (!isValid) {
+            window.alert("Just English Alphabets Are Allowed");
+            return false;
+        }
     }
 </script>
 </html>

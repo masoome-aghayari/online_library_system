@@ -21,6 +21,7 @@ public class UserDtoConverter {
 
     public UserDto convertUserToDto(User user) {
         UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getLastName());
         userDto.setNationalId(user.getNationalId());

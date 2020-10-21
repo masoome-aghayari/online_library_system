@@ -1,5 +1,6 @@
 package ir.nrdc.service;
 
+import ir.nrdc.model.UserIds;
 import ir.nrdc.model.dto.UserDto;
 import ir.nrdc.model.entity.User;
 import ir.nrdc.model.repository.UserRepository;
@@ -67,13 +68,13 @@ public class UserService {
     }
 
     @Transactional
-    public void deleteMembers(List<UserDto> userDtos) {
-        userDtos.forEach(userDto -> userRepository.deleteByNationalId(userDto.getNationalId()));
+    public void deleteMembers(List<UserIds> memberIds) {
+        memberIds.forEach(userId -> userRepository.deleteById(userId.getUserId()));
     }
 
     @Transactional
     public void editMember(UserDto member) {
-        userRepository.updateMember(member.getId(), member.getFirstName(), member.getLastName(), member.getNationalId(),
+       userRepository.updateMember(member.getId(), member.getFirstName(), member.getLastName(), member.getNationalId(),
                 member.getMobileNumber(), member.getEmail());
     }
 }
