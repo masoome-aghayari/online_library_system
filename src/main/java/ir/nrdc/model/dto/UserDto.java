@@ -11,6 +11,7 @@ import javax.persistence.Lob;
 @Getter
 @Setter
 public class UserDto {
+    private int id;
     private int age;
     private String firstName;
     private String lastName;

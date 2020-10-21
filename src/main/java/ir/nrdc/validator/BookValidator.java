@@ -12,7 +12,6 @@ import org.springframework.validation.Validator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
@@ -79,7 +78,7 @@ public class BookValidator implements Validator {
         int tenDigitISBNDivider = Integer.parseInt(env.getProperty("ISBN.Length.10.Divider"));
         int thirteenDigitISBNDivider = Integer.parseInt(env.getProperty("ISBN.Length.13.Divider"));
         if (isbn.length() == tenDigitISBN) {
-            sum = IntStream.range(0, 9).map(i -> Character.getNumericValue(isbn.charAt(i)) *
+            sum = IntStream.range(0, 10).map(i -> Character.getNumericValue(isbn.charAt(i)) *
                     (tenDigitISBN - i)).sum();
             return sum % tenDigitISBNDivider == 0;
         }

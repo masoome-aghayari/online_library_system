@@ -22,8 +22,7 @@
     <button type="submit" class="btn btn-success btn-group btn-logout btn-home" formaction="/logout">Logout</button>
 </form>
 <div class="main-block">
-    <form action="${pageContext.request.contextPath}/admin/books/searchProcess/1" id="search-form" method="Post"
-          class="searchform">
+    <form id="search-form" method="Post" class="searchform">
         <table class="tableizer-table">
             <thead>
             <tr class="tableizer-firstrow">
@@ -49,7 +48,8 @@
                     <input id="author.family" value="${book.author.family}" name="author.family" class="form-control"/>
                 </td>
                 <td>
-                    <button class="btn btn-group btn-primary" onclick="sendToSearch(${pageNumber})">Search</button>
+                    <input type="button" class="btn btn-group btn-primary" onclick="sendToSearch(${pageNumber})"
+                           value="Search"/>
                 </td>
             </tr>
             </tbody>
@@ -63,69 +63,52 @@
 <script>
     function sendToSearch(pageNumber) {
         let book = createJsonSearchObject();
-        const request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                createResultTable(this.response);
-            }
+        let searchrequest = new XMLHttpRequest();
+        searchrequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200)
+                showResult(this.response);
         };
-        request.open("POST", "/admin/books/searchProcess/" + pageNumber, true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.dataType = "json";
-        request.responseType = "json";
+        searchrequest.open("POST", "/admin/books/searchProcess/" + pageNumber, true);
+        searchrequest.setRequestHeader("Content-type", "application/json");
+        searchrequest.dataType = "json";
+        searchrequest.responseType = "json";
         book = JSON.stringify(book);
-        request.send(book);
+        searchrequest.send(book);
     }
 
-    function createResultTable(books) {
-        let table = document.createElement('table');
-        table.setAttribute("id", "result-table");
-        table.setAttribute("class", "table table-hover table table-bordered table-striped");
-        let i;
-        table.insertRow(0).outerHTML =
-            `<tr class="header">
-                <th>Book Name</th>
-                <th>Author Name</th>
-                <th>Author Family</th>
-                <th>ISBN</th>
-            </tr>`;
-        for (i = 0; i < Object.keys(books).length; i++) {
-            const book = books[i];
-            table.insertRow(i + 1).outerHTML =
-                `<tr>
-                    <td id="name` + i + `">` + book.name + `</td>
-                    <td id="author.name` + i + `">` + book.author.name + `</td>
-                    <td id="author.family` + i + `">` + book.author.family + `</td>
-                    <td id="isbn` + i + `">` + book.isbn + `</td>
-                </tr>`;
+    function showResult(books) {
+        removePreviousResult();
+        if (typeof books === 'undefined' || books == null) {
+            removeDeleteButton();
+            createResultText();
+        } else {
+            createResultTable(books);
+            if (!isExistsDeleteButton())
+                createDeleteButton();
         }
-        const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute("class", "btn btn-group btn-danger btn-delete");
-        deleteBtn.setAttribute("id", "btn-delete");
-        deleteBtn.setAttribute("onclick", "sendToDelete()");
-        deleteBtn.appendChild(document.createTextNode("Delete Selected Items"));
-        document.getElementById("search-result").append(table);
-        document.getElementById("delete-btn").append(deleteBtn);
+    }
+
+    function createResultText() {
+        let resultParagraph = document.createElement('p');
+        resultParagraph.setAttribute("class", "result-text");
+        resultParagraph.setAttribute("id", "result");
+        resultParagraph.innerHTML = "No Result Found";
+        document.getElementById("search-result").append(resultParagraph);
     }
 
     function sendToDelete() {
-        let listOfBooks = [];
-        $('input[type=checkbox]').each(function () {
-            if (this.checked)
-                listOfBooks.push(createJsonObject($(this).attr("id")));
-        });
+        let checkedBooks = collectCheckedBooks();
         const request = new XMLHttpRequest();
         request.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.forms[0].submit();
-            }
+            if (this.readyState === 4 && this.status === 200)
+                sendToSearch(${pageNumber});
         };
-        request.open("POST", "/admin/books/deleteBooks/${pageNumber}", true);
+        request.open("POST", "/admin/books/deleteBooks", true);
         request.setRequestHeader("Content-type", "application/json");
         request.dataType = "json";
         request.responseType = "text";
-        listOfBooks = JSON.stringify(listOfBooks);
-        request.send(listOfBooks);
+        checkedBooks = JSON.stringify(checkedBooks);
+        request.send(checkedBooks);
     }
 
     function createJsonSearchObject() {
@@ -148,6 +131,71 @@
                 "family": document.getElementById("author.family" + i).innerHTML,
             }
         };
+    }
+
+    function collectCheckedBooks() {
+        let listOfBooks = [];
+        $('input[type=checkbox]').each(function () {
+            if (this.checked)
+                listOfBooks.push(createJsonObject($(this).attr("id")));
+        });
+        return listOfBooks;
+    }
+
+    function removePreviousResult() {
+        let previousResult = document.getElementById("result");
+        if (typeof (previousResult) != 'undefined' && previousResult != null) {
+            document.getElementById("search-result").removeChild(previousResult);
+        }
+    }
+
+    function isExistsDeleteButton() {
+        let btnDelete = document.getElementById("btn-delete");
+        return typeof (btnDelete) != 'undefined' && btnDelete != null;
+    }
+
+    function removeDeleteButton() {
+        if (isExistsDeleteButton())
+            document.getElementById("btn-delete").remove();
+    }
+
+    function createDeleteButton() {
+        const deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute("class", "btn btn-group btn-danger btn-delete");
+        deleteBtn.setAttribute("id", "btn-delete");
+        deleteBtn.setAttribute("onclick", "sendToDelete()");
+        deleteBtn.appendChild(document.createTextNode("Delete Selected Items"));
+        document.getElementById("delete-btn").append(deleteBtn);
+    }
+
+    function createResultTable(books) {
+        let table = document.createElement('table');
+        table.setAttribute("id", "result");
+        table.setAttribute("class", "table table-hover table table-bordered table-striped");
+        let i;
+        table.insertRow(0).outerHTML =
+            `<tr class="header">
+                <th>Book Name</th>
+                <th>Author Name</th>
+                <th>Author Family</th>
+                <th>ISBN</th>
+            </tr>`;
+        for (i = 0; i < Object.keys(books).length; i++) {
+            const book = books[i];
+            table.insertRow(i + 1).outerHTML =
+                `<tr>
+                    <td id="name` + i + `">` + book.name + `</td>
+                    <td id="author.name` + i + `">` + book.author.name + `</td>
+                    <td id="author.family` + i + `">` + book.author.family + `</td>
+                    <td id="isbn` + i + `">` + book.isbn + `</td>
+                    <td>
+                        <label class="container"><input type="checkbox" id="` + i + `">
+                        <span class="checkmark"></span>
+                        </label>
+                    </td>
+                </tr>`;
+        }
+        document.getElementById("search-result").append(table);
     }
 </script>
 </html>

@@ -27,6 +27,7 @@ public class UserDtoConverter {
         userDto.setAge(user.getAge());
         userDto.setGender(user.getGender());
         userDto.setEmail(user.getEmail());
+        userDto.setMobileNumber(user.getMobileNumber());
         userDto.setRole(user.getRole().getRoleName());
         return userDto;
     }

@@ -74,6 +74,11 @@ public class BookService {
         return bookDtoConverter.convertBookPageToDtoPage(matchedBooks).getContent();
     }
 
+    @Transactional
+    public void deleteBooks(List<BookDto> bookDtos) {
+        bookDtos.forEach(bookDto -> bookRepository.deleteByIsbn(bookDto.getIsbn()));
+    }
+
     private Author getAuthor(BookDto bookDto) {
         Author author = new Author();
         if (Objects.isNull(bookDto.getAuthor()))
@@ -83,12 +88,5 @@ public class BookService {
             author.setFamily(bookDto.getAuthor().getFamily());
         }
         return author;
-    }
-
-    @Transactional
-    public void deleteBooks(List<BookDto> bookDtos) {
-        for (BookDto bookDto : bookDtos) {
-            bookRepository.deleteByIsbn(bookDto.getIsbn());
-        }
     }
 }

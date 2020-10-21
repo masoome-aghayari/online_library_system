@@ -17,8 +17,6 @@
 <body>
 <form>
     <button type="submit" class="btn btn-success btn-group btn-home" formaction="/admin">Home</button>
-    <button type="submit" class="btn btn-success btn-group btn-menu btn-home" formaction="/admin/bookMenu">Book Menu
-    </button>
     <button type="submit" class="btn btn-success btn-group btn-logout btn-home" formaction="/logout">Logout</button>
 </form>
 <div class="main-block">
@@ -26,26 +24,22 @@
         <table class="tableizer-table">
             <thead>
             <tr class="tableizer-firstrow">
-                <th colspan="5">Search Book</th>
+                <th colspan="5">Search Member</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
-                    <label for="name"><strong>Name:</strong></label>
-                    <input id="name" value="${book.name}" name="name" class="form-control"/>
+                    <label for="firstName"><strong>FirstName:</strong></label>
+                    <input id="firstName" value="${member.firstName}" name="firstName" class="form-control"/>
                 </td>
                 <td>
-                    <label for="isbn"><strong>ISBN:</strong></label>
-                    <input id="isbn" value="${book.isbn}" name="isbn" class="form-control"/>
+                    <label for="lastName"><strong>LastName:</strong></label>
+                    <input id="lastName" value="${member.lastName}" name="lastName" class="form-control"/>
                 </td>
                 <td>
-                    <label for="author.name"><strong>Author Name:</strong></label>
-                    <input id="author.name" value="${book.author.name}" name="author.name" class="form-control"/>
-                </td>
-                <td>
-                    <label for="author.family"><strong>Author Family:</strong></label>
-                    <input id="author.family" value="${book.author.family}" name="author.family" class="form-control"/>
+                    <label for="nationalId"><strong>National Id:</strong></label>
+                    <input id="nationalId" value="${member.nationalId}" name="nationalId" class="form-control"/>
                 </td>
                 <td>
                     <input type="button" class="btn btn-group btn-primary" onclick="sendToSearch(${pageNumber})"
@@ -62,42 +56,54 @@
 </body>
 <script>
     function sendToSearch(pageNumber) {
-        let book = createJsonSearchObject();
-        let searchrequest = new XMLHttpRequest();
-        searchrequest.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200)
+        let member = createJsonSearchObject();
+        const searchRequest = new XMLHttpRequest();
+        searchRequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
                 showResult(this.response);
+            }
         };
-        searchrequest.open("POST", "/admin/books/searchProcess/" + pageNumber, true);
-        searchrequest.setRequestHeader("Content-type", "application/json");
-        searchrequest.dataType = "json";
-        searchrequest.responseType = "json";
-        book = JSON.stringify(book);
-        searchrequest.send(book);
+        searchRequest.open("POST", "/admin/members/searchProcess/" + pageNumber, true);
+        searchRequest.setRequestHeader("Content-type", "application/json");
+        searchRequest.dataType = "json";
+        searchRequest.responseType = "json";
+        member = JSON.stringify(member);
+        searchRequest.send(member);
+    }
+
+    function sendToEdit(id) {
+        let member = createJsonObject(id);
+        const request = new XMLHttpRequest();
+        request.open("POST", "/admin/members/editMember", true);
+        request.dataType = "json";
+        request.responseType = "json";
+        member = JSON.stringify(member);
+        request.send(member);
     }
 
     function sendToDelete() {
-        let checkedBooks = collectCheckedBooks();
+        let checkedMembers = collectCheckedBooks();
         const request = new XMLHttpRequest();
         request.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200)
-                sendToSearch(${pageNumber});
+            if (this.readyState === 4 && this.status === 200) {
+                document.forms[0].submit();
+            }
         };
-        request.open("POST", "/admin/books/deleteBooks", true);
+        request.open("POST", "/admin/books/deleteBooks/${pageNumber}", true);
         request.setRequestHeader("Content-type", "application/json");
         request.dataType = "json";
-        request.responseType = "text";
-        checkedBooks = JSON.stringify(checkedBooks);
-        request.send(checkedBooks);
+        request.responseType = "json";
+        checkedMembers = JSON.stringify(checkedMembers);
+        request.send(checkedMembers);
     }
 
-    function showResult(books) {
+    function showResult(members) {
         removePreviousResult();
-        if (typeof books === 'undefined' || books == null) {
+        if (typeof members === 'undefined' || members == null) {
             removeDeleteButton();
             createResultText();
         } else {
-            createResultTable(books);
+            createResultTable(members);
             if (!isExistsDeleteButton())
                 createDeleteButton();
         }
@@ -111,30 +117,36 @@
         document.getElementById("search-result").append(resultParagraph);
     }
 
-    function createResultTable(books) {
+    function createResultTable(members) {
         let table = document.createElement('table');
         table.setAttribute("id", "result");
         table.setAttribute("class", "table table-hover table table-bordered table-striped");
         let i;
         table.insertRow(0).outerHTML =
             `<tr class="header">
-                <th>Book Name</th>
-                <th>Author Name</th>
-                <th>Author Family</th>
-                <th>ISBN</th>
+                <th>Member FirstName</th>
+                <th>Member LastName</th>
+                <th>NationalId</th>
+                <th>MobileNumber</th>
+                <th>Email</th>
             </tr>`;
-        for (i = 0; i < Object.keys(books).length; i++) {
-            const book = books[i];
+        for (i = 0; i < Object.keys(members).length; i++) {
+            const member = members[i];
             table.insertRow(i + 1).outerHTML =
                 `<tr>
-                    <td id="name` + i + `">` + book.name + `</td>
-                    <td id="author.name` + i + `">` + book.author.name + `</td>
-                    <td id="author.family` + i + `">` + book.author.family + `</td>
-                    <td id="isbn` + i + `">` + book.isbn + `</td>
+                    <td id="firstName` + i + `">` + member.firstName + `</td>
+                    <td id="lastName` + i + `">` + member.lastName + `</td>
+                    <td id="nationalId` + i + `">` + member.nationalId + `</td>
+                    <td id="mobileNumber` + i + `">` + member.mobileNumber + `</td>
+                    <td id="email` + i + `">` + member.email + `</td>
+                    <td hidden id="id` + i + `">` + member.id + `</td>
                     <td>
                         <label class="container"><input type="checkbox" id="` + i + `">
                         <span class="checkmark"></span>
                         </label>
+                    </td>
+                    <td>
+                        <button class="btn btn-group btn-primary" onclick="sendToEdit(` + i + `)">Edit</button>
                     </td>
                 </tr>`;
         }
@@ -143,23 +155,18 @@
 
     function createJsonSearchObject() {
         return {
-            "name": document.getElementById("name").value,
-            "isbn": document.getElementById("isbn").value,
-            "author": {
-                "name": document.getElementById("author.name").value,
-                "family": document.getElementById("author.family").value,
-            }
+            "firstName": document.getElementById("firstName").value,
+            "lastName": document.getElementById("lastName").value,
+            "nationalId": document.getElementById("nationalId").value
         };
     }
 
     function createJsonObject(i) {
         return {
-            "name": document.getElementById("name" + i).innerHTML,
-            "isbn": document.getElementById("isbn" + i).innerHTML,
-            "author": {
-                "name": document.getElementById("author.name" + i).innerHTML,
-                "family": document.getElementById("author.family" + i).innerHTML,
-            }
+            "id": document.getElementById("id" + i).innerHTML,
+            "firstName": document.getElementById("firstName" + i).innerHTML,
+            "lastName": document.getElementById("lastName" + i).innerHTML,
+            "nationalId": document.getElementById("nationalId" + i).innerHTML,
         };
     }
 

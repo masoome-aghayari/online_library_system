@@ -24,7 +24,7 @@
             <button formaction="/admin/books/addBook" class="btn btn-primary btn-block btn-addBook"
                     type="submit">Add New Book
             </button>
-            <button formaction="/admin/books/searchPage" class="btn btn-success btn-block btn-searchBook"
+            <button formaction="/admin/books/search" class="btn btn-success btn-block btn-searchBook"
                     type="submit">Search Book
             </button>
         </div>

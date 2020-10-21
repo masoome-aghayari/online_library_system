@@ -138,3 +138,9 @@ td {
 .pagination a:hover:not(.active) {
     background-color: #ddd;
 }
+
+.result-text{
+    font-size: x-large;
+    margin-top: 20vh;
+    font-family: "Calibri Light", serif;
+}

@@ -36,18 +36,20 @@ public class AdminController {
     BookService bookService;
 
     @GetMapping(value = "")
-    public ModelAndView adminDashboard() {
+    public ModelAndView adminDashboard(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        session.removeAttribute("bookDto");
+        session.removeAttribute("pageNumber");
+        session.removeAttribute("member");
         return new ModelAndView("adminDashboard");
     }
 
     @GetMapping(value = "bookMenu")
-    public ModelAndView showBookOperationsMenu() {
+    public ModelAndView showBookOperationsMenu(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        session.removeAttribute("bookDto");
+        session.removeAttribute("pageNumber");
         return new ModelAndView("bookMenu");
-    }
-
-    @GetMapping(value = "memberMenu")
-    public ModelAndView showMemberOperationsMenu() {
-        return new ModelAndView("memberMenu");
     }
 
     @GetMapping(value = "books/addBook")
@@ -68,31 +70,41 @@ public class AdminController {
         return showAddBookForm(model);
     }
 
-    @PostMapping(value = "members/searchProcess/{pageNumber}")
-    @ResponseBody
-    public void searchProcess(HttpServletRequest request, @ModelAttribute("member") UserDto member,
-                              @PathVariable(required = false) int pageNumber) {
-        HttpSession session = request.getSession(false);
-        session.setAttribute("searchedMember", member);
-        if (member == null)
-            member = (UserDto) session.getAttribute("searchedMember");
-        long totalPages = userService.getTotalNumberOfPages(member);
-        ModelAndView searchMember = new ModelAndView("searchMember");
-        if (totalPages == 0)
-            searchMember.addObject("message", env.getProperty("No.Member.Found"));
-        else {
-            List<UserDto> matchedMembers = userService.findMaxMatch(member, pageNumber - 1,
-                    Integer.parseInt(env.getProperty("Page.Rows")));
-            searchMember.addObject("members", matchedMembers)
-                    .addObject("pageNumber", pageNumber)
-                    .addObject("totalPages", totalPages)
-                    .addObject("member", member);
-        }
-//        return searchMember;
+    @GetMapping(value = "members")
+    public ModelAndView showSearchMemberPage() {
+        ModelAndView search = new ModelAndView("searchMember");
+        search.addObject("member", new UserDto())
+                .addObject("pageNumber", 1);
+        return search;
     }
 
-    @GetMapping(value = "books/searchPage")
-    public ModelAndView showSearchPage() {
+    @PostMapping(value = "members/searchProcess/{pageNumber}")
+    @ResponseBody
+    public List<UserDto> searchProcess(@ModelAttribute("member") UserDto member,
+                                       @PathVariable(required = false) int pageNumber) {
+        long totalPages = userService.getTotalNumberOfPages(member);
+        if (totalPages == 0)
+            return null;
+        if (pageNumber > totalPages)
+            pageNumber = (int) totalPages;
+        return userService.findMaxMatch(member, pageNumber - 1, Integer.parseInt(env.getProperty("Page.Rows")));
+    }
+
+    @PostMapping(value = "members/deleteMembers", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public void deleteMembersProcess(@RequestBody List<UserDto> userDtos) {
+        userService.deleteMembers(userDtos);
+    }
+
+
+    @PostMapping(value = "members/editMember", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public void editMembersProcess(@RequestBody UserDto member) {
+        userService.editMember(member);
+    }
+
+    @GetMapping(value = "books/search")
+    public ModelAndView showSearchBookPage() {
         ModelAndView search = new ModelAndView("searchBook");
         search.addObject("book", new BookDto())
                 .addObject("pageNumber", 1);
@@ -101,8 +113,11 @@ public class AdminController {
 
     @PostMapping(value = "books/searchProcess/{pageNumber}")
     @ResponseBody
-    public List<BookDto> bookSearchProcess(@RequestBody BookDto bookDto,
+    public List<BookDto> bookSearchProcess(HttpServletRequest request, @RequestBody BookDto bookDto,
                                            @PathVariable(required = false) int pageNumber) {
+        HttpSession session = request.getSession(false);
+        session.setAttribute("bookDto", bookDto);
+        session.setAttribute("pageNumber", pageNumber);
         long totalPages = bookService.getTotalNumberOfPages(bookDto);
         if (totalPages == 0)
             return null;

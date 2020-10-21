@@ -1,7 +1,6 @@
 package ir.nrdc.service;
 
 import ir.nrdc.model.dto.UserDto;
-import ir.nrdc.model.entity.Role;
 import ir.nrdc.model.entity.User;
 import ir.nrdc.model.repository.UserRepository;
 import ir.nrdc.model.repository.UserSpecifications;
@@ -61,10 +60,20 @@ public class UserService {
 
     @Transactional
     public List<UserDto> findMaxMatch(UserDto userDto, int offset, int limit) {
-        Pageable pageable = PageRequest.of(offset, limit, Sort.Direction.ASC, "family");
-        Role role = roleService.getRoleByName(userDto.getRole());
+        Pageable pageable = PageRequest.of(offset, limit, Sort.Direction.ASC, "firstName", "lastName");
         Page<User> matchedUsers = userRepository.findAll(UserSpecifications.findMaxMatch(userDto.getFirstName(),
                 userDto.getLastName(), userDto.getNationalId()), pageable);
         return userDtoConverter.convertUserPageToDtoPage(matchedUsers).getContent();
+    }
+
+    @Transactional
+    public void deleteMembers(List<UserDto> userDtos) {
+        userDtos.forEach(userDto -> userRepository.deleteByNationalId(userDto.getNationalId()));
+    }
+
+    @Transactional
+    public void editMember(UserDto member) {
+        userRepository.updateMember(member.getId(), member.getFirstName(), member.getLastName(), member.getNationalId(),
+                member.getMobileNumber(), member.getEmail());
     }
 }

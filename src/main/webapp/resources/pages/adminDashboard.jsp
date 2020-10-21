@@ -33,7 +33,7 @@
             <button formaction="/admin/bookMenu" class="btn btn-primary btn-block"
                     type="submit">Book operations
             </button>
-            <button formaction="/admin/memberMenu" class="btn btn-success btn-block"
+            <button formaction="/admin/members" class="btn btn-success btn-block"
                     type="submit">Member operations
             </button>
         </div>
