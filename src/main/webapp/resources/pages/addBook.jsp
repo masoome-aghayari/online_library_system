@@ -16,7 +16,7 @@
 <body onload="checkMessage()">
 <form>
     <button type="submit" class="btn btn-success btn-group btn-home" formaction="/admin">Home</button>
-    <button type="submit" class="btn btn-success btn-group btn-menu btn-home" formaction="/admin/bookMenu">Book Menu
+    <button type="submit" class="btn btn-success btn-group btn-menu btn-home" formaction="/admin/books/bookMenu">Book Menu
     </button>
     <button type="submit" class="btn btn-success btn-group btn-logout btn-home" formaction="/logout">Logout</button>
 </form>

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/addBookStyle.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/defaultButtonsStyle.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/theme/css/styles/searchBookStyle.css"/>">
-    <title>search book</title>
+    <title>search member</title>
 </head>
 <body>
 <form>

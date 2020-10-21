@@ -30,7 +30,7 @@
 <div class="main-block">
     <form>
         <div class="span2">
-            <button formaction="/admin/bookMenu" class="btn btn-primary btn-block"
+            <button formaction="/admin/books/bookMenu" class="btn btn-primary btn-block"
                     type="submit">Book operations
             </button>
             <button formaction="/admin/members" class="btn btn-success btn-block"
