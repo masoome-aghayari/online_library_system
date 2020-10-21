@@ -8,8 +8,10 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class BorrowItemDto {
-    private Book book;
+public class LendItemDto {
+    private BookDto book;
+    private UserDto member;
     private LocalDate borrowDate;
     private LocalDate returnDate;
+    private boolean returned;
 }

@@ -24,7 +24,7 @@ public class User {
     @OneToOne
     private Role role;
     @OneToMany
-    private List<BorrowItem> borrowedBooks;
+    private List<LendItem> borrowedBooks;
     @Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] profilePicture;

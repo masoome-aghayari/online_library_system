@@ -1,7 +1,9 @@
 package ir.nrdc.controller;
 
 import ir.nrdc.model.dto.BookDto;
+import ir.nrdc.model.dto.LendItemDto;
 import ir.nrdc.service.BookService;
+import ir.nrdc.service.LendItemService;
 import ir.nrdc.utils.AgeGroup;
 import ir.nrdc.validator.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class AdminBookController {
     @Autowired
     Environment env;
 
+    @Autowired
+    LendItemService lendItemService;
     @Autowired
     BookValidator bookValidator;
     @Autowired
@@ -54,7 +58,7 @@ public class AdminBookController {
         return showAddBookForm(model);
     }
 
-    @GetMapping(value = "books/search")
+    @GetMapping(value = "search")
     public ModelAndView showSearchBookPage() {
         ModelAndView search = new ModelAndView("searchBook");
         search.addObject("book", new BookDto())
@@ -62,7 +66,7 @@ public class AdminBookController {
         return search;
     }
 
-    @PostMapping(value = "books/searchProcess/{pageNumber}")
+    @PostMapping(value = "searchProcess/{pageNumber}")
     @ResponseBody
     public List<BookDto> bookSearchProcess(@RequestBody BookDto bookDto, @PathVariable(required = false) int pageNumber) {
         long totalPages = bookService.getTotalNumberOfPages(bookDto);
@@ -73,9 +77,16 @@ public class AdminBookController {
         return bookService.findMaxMatch(bookDto, pageNumber - 1, Integer.parseInt(env.getProperty("Page.Rows")));
     }
 
-    @PostMapping(value = "books/deleteBooks", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "deleteBooks", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public void deleteBooksProcess(@RequestBody List<BookDto> bookDtos) {
         bookService.deleteBooks(bookDtos);
+    }
+
+    @PostMapping(value = "lend-book-process", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String lendBookProcess(@RequestBody LendItemDto lendItemDto) {
+        lendItemService.lendBook(lendItemDto);
+        return
     }
 }
