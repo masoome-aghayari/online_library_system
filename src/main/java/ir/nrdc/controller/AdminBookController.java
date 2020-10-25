@@ -83,10 +83,14 @@ public class AdminBookController {
         bookService.deleteBooks(bookDtos);
     }
 
-    @PostMapping(value = "lend-book-process", consumes = MediaType.APPLICATION_JSON_VALUE)
+     @PostMapping(value = "lend-book-process", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String lendBookProcess(@RequestBody LendItemDto lendItemDto) {
-        lendItemService.lendBook(lendItemDto);
-        return
+    public String lendBookProcess(@RequestBody LendItemDto lendItemDto, BindingResult bindingResult) {
+        lendItemValidator.validate(lendItemDto, bindingResult);
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getAllErrors().toString());
+            return bindingResult.getAllErrors().toString();
+        }
+        return lendItemService.lendBook(lendItemDto);
     }
 }
